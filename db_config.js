@@ -166,12 +166,12 @@ validator: {
         description: "Fecha y hora de salida, puede ser null si aún está activo"
         },
         tiempo_total: {
-        bsonType: ["double", "null"],
+        bsonType: ["int","double", "null"],
         minimum: 0,
         description: "Tiempo total del parqueo en horas (opcional o null si no ha salido)"
         },
         costo_total: {
-        bsonType: ["double", "null"],
+        bsonType: ["int","double", "null"],
         minimum: 0,
         description: "Costo total del parqueo (opcional o null si no ha salido)"
         }

@@ -1,0 +1,23 @@
+{
+  "name": "campus_parkingdb",
+  "version": "1.0.0",
+  "main": "aggregations.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlejoNM2402/Campus_ParkingDB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlejoNM2402/Campus_ParkingDB/issues"
+  },
+  "homepage": "https://github.com/AlejoNM2402/Campus_ParkingDB#readme",
+  "description": "",
+  "dependencies": {
+    "mongodb": "^6.17.0"
+  }
+}

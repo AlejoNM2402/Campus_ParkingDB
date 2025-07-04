@@ -2,7 +2,7 @@ db.createCollection("usuarios", {
 validator: {
     $jsonSchema: {
     bsonType: "object",
-    required: ["nombre", "rol", "correo"],
+    required: ["nombre", "rol", "correo", "documento"],
     properties: {
         nombre: {
         bsonType: "string",
@@ -20,6 +20,11 @@ validator: {
         sede_id: {
         bsonType: "objectId",
         description: "Solo para empleados: referencia a la sede"
+        },
+        documento: {
+        bsonType: "string",
+          pattern: "^[0-9]+$",  // opcional: solo dígitos
+        description: "Documento obligatorio, solo dígitos"
         }
     }
     }
@@ -27,6 +32,7 @@ validator: {
 validationLevel: "strict",
 validationAction: "error"
 });
+
 
 
 db.createCollection("vehiculos", {
@@ -89,7 +95,7 @@ validator: {
         "tipo_permitido",
         "capacidad_maxima",
         "cupos_disponibles",
-        "tarifa"
+        "tarifa_por_hora"
     ],
     properties: {
         nombre: {
@@ -105,17 +111,17 @@ validator: {
         description: "Debe ser uno de los tipos de vehículos permitidos"
         },
         capacidad_maxima: {
-        bsonType: "int",
+        bsonType: ["int", "double"],
         minimum: 1,
         description: "Debe ser un número entero mayor que 0"
         },
         cupos_disponibles: {
-        bsonType: "int",
+        bsonType: ["int", "double"],
         minimum: 0,
         description: "Debe ser un número entero mayor o igual a 0"
         },
-        tarifa: {
-        bsonType: "double",
+        tarifa_por_hora: {
+        bsonType: ["double", "int"],
         minimum: 0,
         description: "La tarifa debe ser un número decimal mayor o igual a 0"
         }
@@ -133,11 +139,15 @@ db.createCollection("parqueos", {
 validator: {
     $jsonSchema: {
     bsonType: "object",
-    required: ["vehiculo_id", "zona_id", "sede_id", "hora_entrada"],
+    required: ["vehiculo_id", "zona_id", "sede_id", "cliente_id", "hora_entrada"],
     properties: {
         vehiculo_id: {
         bsonType: "objectId",
         description: "ID del vehículo que se estaciona, obligatorio"
+        },
+        cliente_id: {
+        bsonType: "objectId",
+        description: "ID del cliente dueño/a del vehiculo, obligatorio"
         },
         zona_id: {
         bsonType: "objectId",

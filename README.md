@@ -57,5 +57,6 @@ Campus Parking es un sistema backend para la gestión de parqueaderos, construid
 4. Ejecuta `npm install` para instalar dependencias (MongoDB driver).
 5. Configura la URI de conexión a tu base de datos MongoDB en el archivo principal (ej. `registroIngreso.js`):
 
+
 ```js
 const uri = "mongodb+srv://alejonaranjo:alejo2402@alejandro.zn6aqic.mongodb.net/";
